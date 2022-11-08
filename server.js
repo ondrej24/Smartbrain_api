@@ -17,7 +17,7 @@ const db = knex({
     host: '127.0.0.1',
     port: 5432,
     user: 'postgres',
-    password: '',
+    password: 'parek',
     database: 'smart-brain'
   }
 });
@@ -45,6 +45,6 @@ app.put('/image', (req, res) => { image.handleImage(req, res, db) })
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
 
 // server listens to port 3000
-app.listen(3000, () => {
-  console.log('Server running on port 3000')
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server running on port ${process.env.PORT}` )
 })
